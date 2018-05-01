@@ -18,13 +18,13 @@ By default, every [Java object](https://docs.oracle.com/javase/7/docs/api/java/l
 Details instructions on what each method should do and return is in `MyMap` class.
 
 ### Part 2 - ListMap
-A list map stores every entry in a list. Every time the user calls `put`, create a new `Entry` and add it to the list. Your task is to make all the test pass.
+A list map stores every entry in a list. Every time the user calls `put`, create a new `Entry` and add it to the list. Your task is to make all the tests in `test/java/org/zipcoder/store/ListMapTest.java` pass.
   1. Uncomment line 178 - 196. Notice how long the test takes to run.
 
 **BONUS**: Uncomment the remove method and add the code to pass the tests.
 
 ### Part 3 - MyHashMap
-If you still have no idea what a HashMap is, watch this [video](https://www.youtube.com/watch?v=shs0KM3wKv8). Notice I add the `bucketIndex` to help you determine where to store the entry. The `bucketIndex` uses the `hashCode` to try to evenly distribute the entries. 
+If you still have no idea what a HashMap is, read this [article](https://medium.com/@nhu313/what-is-a-java-hashmap-83152fb632bb) or watch this [video](https://www.youtube.com/watch?v=shs0KM3wKv8). Notice I add the `bucketIndex` to help you determine where to store the entry. The `bucketIndex` uses the `hashCode` to try to evenly distribute the entries.
   1. `put` - find which bucket it belongs to, then add it to the list of that bucket
   2. `get` - find which bucket it belongs to, then loop through the list to find the entry corresponding to the key
   3. Uncomment line 178 - 196. Notice how fast it takes to run.
