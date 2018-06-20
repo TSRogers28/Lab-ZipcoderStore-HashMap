@@ -12,7 +12,7 @@ public interface MyMap {
     /**
      * @return true if the map has one or more item in it. False otherwise.
      */
-    public boolean isEmptry();
+    public boolean isEmpty();
 
     /**
      * Return the cart associated with the user

@@ -116,7 +116,7 @@ public class ListMapTest {
 
     @Test
     public void testIsEmpty_WithoutEntry(){
-        Assert.assertTrue(myMap.isEmptry());
+        Assert.assertTrue(myMap.isEmpty());
     }
 
     @Test
@@ -129,7 +129,7 @@ public class ListMapTest {
         myMap.put(user1, cart1);
 
         // Then
-        Assert.assertFalse(myMap.isEmptry());
+        Assert.assertFalse(myMap.isEmpty());
     }
 
     @Test
@@ -174,58 +174,58 @@ public class ListMapTest {
         Assert.assertTrue(values.contains(cart2));
     }
 
-//    I commented this out because it takes a long time to run. Uncomment it when implement your put method, uncomment this test
-//    @Test
-//    public void testPutAndGet_WithManyItems(){
-//        // Given
-//        int numberOfEntries = 70000;
-//
-//        for (int i = 0; i < numberOfEntries; i++) {
-//            myMap.put(new User(i), new Cart(i));
-//        }
-//
-//
-//        for (int i = 0; i < numberOfEntries; i++) {
-//            // When
-//            Cart actualCart = myMap.get(new User(i));
-//            Cart expectedCart = new Cart(i);
-//
-//            // Then
-//            Assert.assertEquals(actualCart, expectedCart);
-//        }
-//    }
+   // I commented this out because it takes a long time to run. Uncomment it when implement your put method, uncomment this test
+    @Test
+    public void testPutAndGet_WithManyItems(){
+        // Given
+        int numberOfEntries = 70000;
 
-//    BONUS
-//    @Test
-//    public void testRemove(){
-//        // Given
-//        User user1 = new User("Lena");
-//        Cart cart1 = new Cart(11);
-//
-//        User user2 = new User("Jamal");
-//        Cart cart2 = new Cart(21);
-//
-//        User user3 = new User("Kelvin");
-//        Cart cart3 = new Cart(31);
-//
-//        // When
-//        myMap.put(user1, cart1);
-//        myMap.put(user2, cart2);
-//        myMap.put(user3, cart3);
-//
-//        // Then
-//        Cart actualCart = myMap.remove(user2);
-//
-//        Assert.assertEquals(cart2, actualCart);
-//        Assert.assertNull(myMap.get(user2));
-//    }
-//
-//    @Test
-//    public void testRemove_CartNotInTheMap(){
-//        // Given
-//        User user1 = new User("Lena");
-//
-//        // When & Then
-//        Assert.assertNull(myMap.remove(user1));
-//    }
+        for (int i = 0; i < numberOfEntries; i++) {
+            myMap.put(new User(i), new Cart(i));
+        }
+
+
+        for (int i = 0; i < numberOfEntries; i++) {
+            // When
+            Cart actualCart = myMap.get(new User(i));
+            Cart expectedCart = new Cart(i);
+
+            // Then
+            Assert.assertEquals(actualCart, expectedCart);
+        }
+    }
+
+    //BONUS
+    @Test
+    public void testRemove(){
+        // Given
+        User user1 = new User("Lena");
+        Cart cart1 = new Cart(11);
+
+        User user2 = new User("Jamal");
+        Cart cart2 = new Cart(21);
+
+        User user3 = new User("Kelvin");
+        Cart cart3 = new Cart(31);
+
+        // When
+        myMap.put(user1, cart1);
+        myMap.put(user2, cart2);
+        myMap.put(user3, cart3);
+
+        // Then
+        Cart actualCart = myMap.remove(user2);
+
+        Assert.assertEquals(cart2, actualCart);
+        Assert.assertNull(myMap.get(user2));
+    }
+
+    @Test
+    public void testRemove_CartNotInTheMap(){
+        // Given
+        User user1 = new User("Lena");
+
+        // When & Then
+        Assert.assertNull(myMap.remove(user1));
+    }
 }

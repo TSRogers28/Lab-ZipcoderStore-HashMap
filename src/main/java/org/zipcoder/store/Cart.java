@@ -12,4 +12,19 @@ public class Cart {
     public long getId(){
         return this.id;
     }
+
+    public int hashCode(){
+        return (int) id;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        boolean answer =false;
+        Cart cart = (Cart) o;
+        if (this.getId() == cart.getId()) {
+            answer = true;
+        }
+        return answer;
+    }
 }
+

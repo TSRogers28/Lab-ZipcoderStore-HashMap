@@ -37,4 +37,23 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    public int hashCode(){
+        if (getName() == null)
+            return (int) id;
+        else
+            return (int) id + getName().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        boolean answer =false;
+        User user = (User) o;
+        if ((this.getId() == user.getId()) && (this.getName() == user.getName())) {
+            answer = true;
+        }
+        return answer;
+    }
 }
+

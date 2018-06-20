@@ -7,42 +7,63 @@ public class ListMap implements MyMap {
     // instance field that is intialize to an ArrayList
     private List<Entry> entries = new ArrayList<>();
 
-    @Override
-    public int size() {
-        return -1;
+    public ListMap(){
     }
 
     @Override
-    public boolean isEmptry() {
-        return false;
+    public int size() {
+        return entries.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return entries.isEmpty();
     }
 
     @Override
     public Cart get(User key) {
-        // find the cart associate with the key
+
+        for(Entry e : entries)
+            if (e.getKey().equals(key))
+                return e.getValue();
+
         return null;
     }
 
     @Override
     public void put(User key, Cart value) {
-        // add the key, value entry to the entries list
+        if (get(key) != null) remove(key);
+        entries.add(new Entry(key, value));
     }
 
 
     @Override
     public List<User> getKeys() {
-        // get all the keys in the map
-        return null;
+        List<User>  users = new ArrayList<>();
+        for (Entry e : entries)
+            users.add(e.getKey());
+        return users;
     }
 
     @Override
     public List<Cart> getValues() {
-        // get all the values in the map
-        return null;
+        List<Cart>  carts = new ArrayList<>();
+        for (Entry e : entries)
+            carts.add(e.getValue());
+        return carts;
     }
 
     @Override
     public Cart remove(User key) {
-        return null;
+        Cart cart = null;
+        for(Entry e : entries)
+            if (e.getKey().equals(key)) {
+                cart = e.getValue();
+                entries.remove(e);
+                break;
+            }
+
+        return cart;
     }
 }
+
